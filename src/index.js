@@ -45,7 +45,7 @@ const parseLang = (str) => {
     return Array.isArray(m) ? m.filter(Boolean) : [];
   };
 
-  const [lang = 'css-1gsotsz'] = match(/^[a-zA-Z\d-]*/g);
+  const [lang = 'bash'] = match(/^[a-zA-Z\d-]*/g);
   const selectors = match(/\[(.*?)\]/g).join('');
 
   const attrs = selectors.length ? selectorToAttrs(selectors) : {};
@@ -98,7 +98,7 @@ module.exports = (options = {}) => (tree) => {
       .join(' ');
 
     const langToken = node.lang || langClassName;
-    const { lang = 'css-1gsotsz', attrs, legend, range } = parseLang(langToken);
+    const { lang = 'bash', attrs, legend, range } = parseLang(langToken);
     const { class: className = '', ...restAttrs } = attrs;
 
     const code = h(
